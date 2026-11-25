@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXUS GAMING</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #090a12;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    height: 75px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #11121d;
+    border-bottom: 1px solid #25263a;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #a855f7;
+}
+
+nav a {
+    color: #ccc;
+    text-decoration: none;
+    margin-left: 25px;
+}
+
+nav a:hover {
+    color: #a855f7;
+}
+
+.hero {
+    margin: 35px auto;
+    width: 86%;
+    min-height: 340px;
+    border-radius: 18px;
+    padding: 65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(110deg, #24104b, #101b38);
+    border: 1px solid #57308c;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    color: #c4b5fd;
+    margin-bottom: 25px;
+}
+
+.btn {
+    width: fit-content;
+    padding: 13px 25px;
+    border: none;
+    border-radius: 8px;
+    background: #9333ea;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #7e22ce;
+}
+
+.container {
+    width: 86%;
+    margin: 45px auto;
+}
+
+.section-title {
+    font-size: 26px;
+    margin-bottom: 22px;
+}
+
+.search {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 25px;
+    background: #171827;
+    color: white;
+    border: 1px solid #33354b;
+    border-radius: 8px;
+    outline: none;
+}
+
+.games {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 22px;
+}
+
+.game-card {
+    background: #151624;
+    border: 1px solid #292a40;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.game-card:hover {
+    transform: translateY(-6px);
+    border-color: #a855f7;
+}
+
+.game-image {
+    height: 145px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+    background: linear-gradient(135deg, #312e81, #701a75);
+}
+
+.game-info {
+    padding: 18px;
+}
+
+.game-info h3 {
+    margin-bottom: 8px;
+}
+
+.game-info p {
+    color: #999;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.play-btn {
+    width: 100%;
+    padding: 10px;
+    background: #7c3aed;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+    border-top: 1px solid #25263a;
+    margin-top: 60px;
+}
+
+@media(max-width: 600px) {
+    header {
+        padding: 0 5%;
+    }
+
+    nav a {
+        margin-left: 10px;
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 35px 25px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">NEXUS</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#games">Games</a>
+        <a href="#about">About</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>LEVEL UP YOUR GAME.</h1>
+    <p>Discover amazing games. Play, explore and compete.</p>
+    <button class="btn" onclick="document.getElementById('games').scrollIntoView({behavior:'smooth'})">
+        Explore Games
+    </button>
+</section>
+
+<section class="container" id="games">
+    <h2 class="section-title">Explore Games</h2>
+
+    <input
+        class="search"
+        id="search"
+        type="text"
+        placeholder="Search games..."
+        oninput="searchGames()"
+    >
+
+    <div class="games" id="gameList">
+
+        <div class="game-card" data-name="cyber racer">
+            <div class="game-image">🏎️</div>
+            <div class="game-info">
+                <h3>Cyber Racer</h3>
+                <p>Racing · Multiplayer</p>
+                <button class="play-btn" onclick="playGame('Cyber Racer')">Play Now</button>
+            </div>
+        </div>
+
+        <div class="game-card" data-name="space wars">
+            <div class="game-image">🚀</div>
+            <div class="game-info">
+                <h3>Space Wars</h3>
+                <p>Adventure · Sci-Fi</p>
+                <button class="play-btn" onclick="playGame('Space Wars')">Play Now</button>
+            </div>
+        </div>
+
+        <div class="game-card" data-name="pixel world">
+            <div class="game-image">🌍</div>
+            <div class="game-info">
+                <h3>Pixel World</h3>
+                <p>Sandbox · Creative</p>
+                <button class="play-btn" onclick="playGame('Pixel World')">Play Now</button>
+            </div>
+        </div>
+
+        <div class="game-card" data-name="battle arena">
+            <div class="game-image">⚔️</div>
+            <div class="game-info">
+                <h3>Battle Arena</h3>
+                <p>Action · Strategy</p>
+                <button class="play-btn" onclick="playGame('Battle Arena')">Play Now</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer id="about">
+    © 2026 NEXUS GAMING · All Rights Reserved
+</footer>
+
+<script>
+function searchGames() {
+    const query = document.getElementById("search").value.toLowerCase();
+    const games = document.querySelectorAll(".game-card");
+
+    games.forEach(game => {
+        game.style.display = game.dataset.name.includes(query)
+            ? "block"
+            : "none";
+    });
+}
+
+function playGame(name) {
+    alert("You selected " + name + "! Add your game URL here.");
+}
+</script>
+
+</body>
+</html>
